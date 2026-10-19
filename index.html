@@ -71,6 +71,7 @@
       },
       "sameAs": [
         "https://www.linkedin.com/company/silk-road-media",
+        "https://www.youtube.com/@silkroadmediaco",
         "https://silkroadaisolutions.com/",
         "https://silkroadscm.com/"
       ],
@@ -97,6 +98,42 @@
       "name": "Silk Road Media",
       "publisher": { "@id": "https://silkroadmediaco.com/#organization" },
       "inLanguage": "en-US"
+    },
+    {
+      "@type": "PodcastSeries",
+      "@id": "https://silkroadmediaco.com/#the-wellness-room",
+      "name": "The Wellness Room",
+      "url": "https://silkroadmediaco.com/#episodes",
+      "webFeed": "https://www.youtube.com/@silkroadmediaco",
+      "author": { "@id": "https://silkroadmediaco.com/#dallas-wymes" },
+      "publisher": { "@id": "https://silkroadmediaco.com/#organization" },
+      "sameAs": ["https://www.youtube.com/@silkroadmediaco"]
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://silkroadmediaco.com/#ep-chris-thompson",
+      "name": "The Body Is the Dividend: Chris Thompson on the Hidden Biological Tax of Success | The Wellness Room",
+      "description": "Chris Thompson, former EVP and global president of a publicly traded nutraceutical company and founder of CRUSH1 Coaching, on the biological tax of success, HotFast 24, Deep Code, and why the body is the dividend while the real investment is who you become.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/gl13Bw1FTGE/hqdefault.jpg",
+      "uploadDate": "2026-10-15",
+      "duration": "PT42M53S",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/gl13Bw1FTGE",
+      "contentUrl": "https://www.youtube.com/watch?v=gl13Bw1FTGE",
+      "partOfSeries": { "@id": "https://silkroadmediaco.com/#the-wellness-room" },
+      "publisher": { "@id": "https://silkroadmediaco.com/#organization" }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://silkroadmediaco.com/#ep-armando-cruz",
+      "name": "Held Hostage by Your Own Body: Armando Cruz III on Healing Chronic Pain | The Wellness Room",
+      "description": "Dallas Wymes talks with Armando Cruz III, MSPT, founder of Cruz Country, about what to do when you have tried everything and you are still in pain.",
+      "thumbnailUrl": "https://i.ytimg.com/vi/8jmtdDGLZLk/hqdefault.jpg",
+      "uploadDate": "2026-10-01",
+      "duration": "PT27M57S",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/8jmtdDGLZLk",
+      "contentUrl": "https://www.youtube.com/watch?v=8jmtdDGLZLk",
+      "partOfSeries": { "@id": "https://silkroadmediaco.com/#the-wellness-room" },
+      "publisher": { "@id": "https://silkroadmediaco.com/#organization" }
     }
   ]
 }
@@ -117,11 +154,11 @@
   .wrap { max-width:1080px; margin:0 auto; padding:0 24px; }
 
   header { position:sticky; top:0; z-index:50; background:rgba(11,9,8,.92); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); }
-  .nav { display:flex; align-items:center; gap:28px; padding:14px 24px; max-width:1080px; margin:0 auto; }
+  .nav { display:flex; align-items:center; gap:18px; padding:14px 24px; max-width:1080px; margin:0 auto; }
   .nav img { height:44px; width:44px; }
   .brand { font-family:'Big Shoulders Display',sans-serif; font-weight:700; font-size:1.25rem; color:#fff; letter-spacing:.06em; white-space:nowrap; }
   .brand span { color:var(--gold); }
-  .nav .links { display:flex; gap:22px; margin-left:auto; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; }
+  .nav .links { display:flex; gap:18px; margin-left:auto; font-size:.85rem; letter-spacing:.08em; text-transform:uppercase; }
   .nav .links a { color:var(--muted); white-space:nowrap; }
   .nav .links a:hover { color:var(--gold-soft); }
   .btn { display:inline-block; padding:12px 26px; border-radius:6px; font-weight:600; letter-spacing:.06em; }
@@ -168,8 +205,28 @@
   .quote blockquote { font-family:'Big Shoulders Display',sans-serif; font-size:clamp(1.6rem,3.5vw,2.3rem); color:var(--gold-soft); line-height:1.25; }
   .quote cite { display:block; margin-top:16px; color:var(--muted); font-style:normal; letter-spacing:.15em; text-transform:uppercase; font-size:.8rem; }
 
+  .eps { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:26px; }
+  .ep { background:var(--panel); border:1px solid var(--line); border-radius:10px; overflow:hidden; display:flex; flex-direction:column; }
+  .ep .player { position:relative; aspect-ratio:16/9; background:#000; }
+  .ep .player button { all:unset; cursor:pointer; position:absolute; inset:0; display:block; }
+  .ep .player img { width:100%; height:100%; object-fit:cover; display:block; }
+  .ep .player .play { position:absolute; left:50%; top:50%; width:72px; height:72px; margin:-36px 0 0 -36px; border-radius:50%;
+    background:rgba(11,9,8,.72); border:2px solid var(--gold); display:grid; place-items:center; transition:transform .15s; }
+  .ep .player button:hover .play, .ep .player button:focus-visible .play { transform:scale(1.08); background:rgba(11,9,8,.85); }
+  .ep .player button:focus-visible { outline:2px solid var(--gold); outline-offset:-2px; }
+  .ep .player .play::after { content:""; margin-left:6px; border-style:solid; border-width:13px 0 13px 22px; border-color:transparent transparent transparent var(--gold-soft); }
+  .ep .player .len { position:absolute; right:10px; bottom:10px; background:rgba(0,0,0,.8); color:#fff; font-size:.78rem; padding:2px 7px; border-radius:4px; }
+  .ep .player iframe { position:absolute; inset:0; width:100%; height:100%; border:0; }
+  .ep .body { padding:22px 24px 26px; display:flex; flex-direction:column; gap:8px; flex:1; }
+  .ep .guest { letter-spacing:.2em; text-transform:uppercase; color:var(--gold); font-size:.74rem; }
+  .ep h3 { color:#fff; font-size:1.4rem; line-height:1.15; }
+  .ep p { color:var(--muted); font-size:.95rem; }
+  .ep .watch { margin-top:auto; padding-top:8px; font-size:.85rem; letter-spacing:.06em; }
+  .eps-foot { margin-top:34px; display:flex; gap:16px; flex-wrap:wrap; align-items:center; }
+
   .about { display:grid; grid-template-columns:1fr 2fr; gap:40px; align-items:center; }
-  @media (max-width:760px) { .about { grid-template-columns:1fr; } .nav .links { display:none; } }
+  @media (max-width:760px) { .about { grid-template-columns:1fr; } .nav .links { display:none; } .nav .btn { margin-left:auto; } }
+  @media (max-width:480px) { .nav { padding:12px 16px; gap:12px; } .brand { font-size:1rem; } .nav .btn { padding:8px 14px; font-size:.78rem; } .eps { grid-template-columns:1fr; } }
   .about img { width:100%; max-width:280px; border-radius:12px; display:block; margin:0 auto; }
 
   .sister { text-align:center; }
@@ -191,6 +248,7 @@
     <img src="logo.webp" alt="Silk Road Media" width="44" height="44">
     <div class="brand">SILK ROAD <span>MEDIA</span></div>
     <div class="links">
+      <a href="#episodes">Episodes</a>
       <a href="#what">What We Do</a>
       <a href="#who">Who We Feature</a>
       <a href="#how">How It Works</a>
@@ -208,9 +266,53 @@
   <p class="sub">Silk Road Media produces documentary-style interviews and original series with founders, executives, and high performers — the people whose best lessons usually stay locked behind the title.</p>
   <div class="cta-row">
     <a class="btn btn-gold" href="https://calendly.com/dallas-silkroadaisolutions/30min">Share your story</a>
-    <a class="btn btn-ghost" href="#what">See what we make</a>
+    <a class="btn btn-ghost" href="#episodes">Watch the episodes</a>
   </div>
   <div class="ridge"></div>
+</section>
+
+<section class="alt" id="episodes">
+  <div class="wrap">
+    <div class="kicker">The Wellness Room</div>
+    <h2>Latest episodes.</h2>
+    <p class="lead">Long-form conversations with the people rebuilding how we perform, heal, and last. Recorded, produced, and published by Silk Road Media.</p>
+    <div class="eps">
+      <article class="ep">
+        <div class="player" data-yt="gl13Bw1FTGE">
+          <button type="button" aria-label="Play: The Body Is the Dividend, with Chris Thompson">
+            <img src="https://i.ytimg.com/vi/gl13Bw1FTGE/hqdefault.jpg" alt="Chris Thompson, The Body Is the Dividend" loading="lazy" width="480" height="360">
+            <span class="play" aria-hidden="true"></span>
+            <span class="len">42:53</span>
+          </button>
+        </div>
+        <div class="body">
+          <div class="guest">Chris Thompson · CRUSH1 Coaching</div>
+          <h3>The Body Is the Dividend: The Hidden Biological Tax of Success</h3>
+          <p>A former EVP and global president of a publicly traded nutraceutical company on running a P&amp;L and being the face of the brand at the same time, and the system he built to do both.</p>
+          <a class="watch" href="https://www.youtube.com/watch?v=gl13Bw1FTGE" target="_blank" rel="noopener">Watch on YouTube →</a>
+        </div>
+      </article>
+      <article class="ep">
+        <div class="player" data-yt="8jmtdDGLZLk">
+          <button type="button" aria-label="Play: Held Hostage by Your Own Body, with Armando Cruz III">
+            <img src="https://i.ytimg.com/vi/8jmtdDGLZLk/hqdefault.jpg" alt="Armando Cruz III, Held Hostage by Your Own Body" loading="lazy" width="480" height="360">
+            <span class="play" aria-hidden="true"></span>
+            <span class="len">27:57</span>
+          </button>
+        </div>
+        <div class="body">
+          <div class="guest">Armando Cruz III, MSPT · Cruz Country</div>
+          <h3>Held Hostage by Your Own Body: Healing Chronic Pain</h3>
+          <p>For the people who have seen the doctor, the chiropractor and the specialist, had the shots and sometimes the surgery, and still hurt. What actually changes the outcome.</p>
+          <a class="watch" href="https://www.youtube.com/watch?v=8jmtdDGLZLk" target="_blank" rel="noopener">Watch on YouTube →</a>
+        </div>
+      </article>
+    </div>
+    <div class="eps-foot">
+      <a class="btn btn-gold" href="https://www.youtube.com/@silkroadmediaco?sub_confirmation=1" target="_blank" rel="noopener">Subscribe on YouTube</a>
+      <a class="btn btn-ghost" href="https://calendly.com/dallas-silkroadaisolutions/30min">Be a guest</a>
+    </div>
+  </div>
 </section>
 
 <section id="what">
@@ -325,6 +427,7 @@
       </div>
       <div>
         <h4>Explore</h4>
+        <p><a href="#episodes">Episodes</a></p>
         <p><a href="#what">What We Do</a></p>
         <p><a href="#how">How It Works</a></p>
         <p><a href="#guests">For Guests</a></p>
@@ -333,6 +436,7 @@
         <h4>Family</h4>
         <p><a href="https://silkroadaisolutions.com">Silk Road AI Solutions</a></p>
         <p><a href="https://silkroadscm.com">Silk Road SCM</a></p>
+        <p><a href="https://www.youtube.com/@silkroadmediaco">YouTube</a></p>
         <p><a href="https://www.linkedin.com/company/silk-road-media">LinkedIn</a></p>
       </div>
     </div>
@@ -340,6 +444,21 @@
       <a href="/privacy.html">Privacy Policy</a> · <a href="/terms.html">Terms of Service</a></div>
   </div>
 </footer>
+
+<script>
+  document.querySelectorAll('.ep .player').forEach(function (p) {
+    var btn = p.querySelector('button');
+    btn.addEventListener('click', function () {
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube-nocookie.com/embed/' + p.dataset.yt + '?autoplay=1&rel=0';
+      f.title = btn.getAttribute('aria-label').replace('Play: ', '');
+      f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+      f.allowFullscreen = true;
+      p.innerHTML = '';
+      p.appendChild(f);
+    });
+  });
+</script>
 
 </body>
 </html>
